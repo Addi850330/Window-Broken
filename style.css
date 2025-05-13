@@ -9,6 +9,7 @@ body {
   height: 100vh;
   font-family: "Roboto", sans-serif;
   overflow: hidden;
+  cursor: none; /* 👈 就是這一行 */
 }
 .container {
   color: white;
