@@ -1,0 +1,55 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: rgba(0, 121, 217, 1);
+  width: 100%;
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
+  overflow: hidden;
+}
+.container {
+  color: white;
+  margin-left: 10%;
+  margin-top: 8%;
+  width: 45%;
+}
+.container .smile {
+  font-size: 7.5rem;
+  font-weight: 200;
+}
+.container .title {
+  font-size: 1.5rem;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.container .complete {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+.container .subtitle {
+  font-size: 0.8rem;
+  margin-bottom: 30px;
+}
+.container .errortitle {
+  font-size: 0.8rem;
+  margin-bottom: 15px;
+}
+.container .errorinfo {
+  font-size: 0.8rem;
+}
+.blackScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  z-index: 999;
+  display: none;
+}
+.blackScreen.active {
+  display: block; /* 加上 active 時才顯示 */
+}
