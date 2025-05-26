@@ -1,21 +1,34 @@
 const completeDiv = document.querySelector(".complete");
 const blackScreen = document.querySelector(".blackScreen");
+const windowload = document.querySelector(".windowload");
 let percent = 0;
+
+function openBlackWindow() {
+  window.open("black.html", "_blank");
+}
 
 function updateProgress() {
   if (percent >= 100) {
     completeDiv.textContent = `100% complete`;
-
     // 顯示黑屏（改用 class 控制）
     blackScreen.classList.add("active");
 
-    // 5 秒後黑屏結束、重置 percent、隱藏黑屏並重新開始
+    // 第一次黑屏 5 秒 > 顯示 windowload 畫面 4 秒 > 再黑屏 3 秒 > 重啟
     setTimeout(() => {
-      percent = 0;
-      completeDiv.textContent = `0% complete`;
-      // 隱藏黑屏
       blackScreen.classList.remove("active");
-      updateProgress(); // 重啟循環
+      windowload.style.display = "flex"; // 顯示 windowload 畫面
+
+      setTimeout(() => {
+        windowload.style.display = "none";
+        blackScreen.classList.add("active"); // 再次黑屏
+
+        setTimeout(() => {
+          blackScreen.classList.remove("active");
+          percent = 0;
+          completeDiv.textContent = `0% complete`;
+          updateProgress(); // 重啟循環
+        }, 3000);
+      }, 9000);
     }, 5000);
 
     return;
@@ -43,5 +56,7 @@ function updateProgress() {
   // 計畫下一次更新
   setTimeout(updateProgress, delay);
 }
+// 初始狀態隱藏 windowload 畫面
+windowload.style.display = "none";
 
 updateProgress();

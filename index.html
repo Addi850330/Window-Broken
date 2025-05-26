@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Window Broken</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div class="container">
+    <div class="container" onClick="openBlackWindow()">
       <div class="smile">: (</div>
       <div class="title">
         Your PC ran into a problem and needs to restart. We're just collecting
@@ -28,6 +28,40 @@
       <div class="errorinfo">Stop code: 0x00000000</div>
     </div>
     <div class="blackScreen"></div>
+    <div class="windowload">
+      <div class="winicon">
+        <img src="./window.svg" alt="" />
+      </div>
+      <svg class="spinner" viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="60">
+          <animateTransform
+            attributeName="transform"
+            type="rotate"
+            values="0 60 60;360 60 60"
+            dur="2s"
+            repeatCount="indefinite"
+          />
+          <animate
+            attributeName="stroke-dashoffset"
+            values="0%;0%;-157.080%"
+            calcMode="spline"
+            keySplines="0.61,1,0.88,1;0.12,0,0.39,0"
+            keyTimes="0;0.5;1"
+            dur="1.8s"
+            repeatCount="indefinite"
+          />
+          <animate
+            attributeName="stroke-dasharray"
+            values="0% 314.159%;157.080% 157.080%;0% 314.159%"
+            calcMode="spline"
+            keySplines="0.61,1,0.88,1;0.12,0,0.39,0"
+            keyTimes="0;0.5;1"
+            dur="1.8s"
+            repeatCount="indefinite"
+          />
+        </circle>
+      </svg>
+    </div>
     <script src="./app.js"></script>
   </body>
 </html>
